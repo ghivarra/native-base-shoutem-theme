@@ -8,7 +8,7 @@ import { StyleSheet } from "react-native";
 
 import Theme, { ThemeShape } from "./Theme";
 import { resolveComponentStyle } from "./resolveComponentStyle";
-import { StyleContext } from "./StyleProvider";
+import { StyleContext } from "./StyleProviderContext";
 
 let themeCache = {};
 
