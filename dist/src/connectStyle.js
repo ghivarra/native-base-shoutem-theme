@@ -118,11 +118,13 @@ this.setState({style:style,styleNames:nextStyleNames});
 {var _props=
 this.props,style=_props.style,__theme=_props.__theme,forwardedRef=_props.forwardedRef,rest=_objectWithoutProperties(_props,["style","__theme","forwardedRef"]);
 
+var refSent=options.withRef&&(typeof forwardedRef==='function'||typeof forwardedRef==='object')?forwardedRef:null;
+
 return(
 _react2.default.createElement(WrappedComponent,_extends({},
 rest,{
 style:this.state.style,
-ref:forwardedRef,__source:{fileName:_jsxFileName,lineNumber:122}})));
+ref:refSent,__source:{fileName:_jsxFileName,lineNumber:124}})));
 
 
 }}]);return StyledCore;}(_react2.default.PureComponent);StyledCore.propTypes={style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),styleName:_propTypes2.default.string,virtual:_propTypes2.default.bool,__theme:_propTypes2.default.object,forwardedRef:_propTypes2.default.any};StyledCore.defaultProps={virtual:options.virtual};
@@ -130,12 +132,12 @@ ref:forwardedRef,__source:{fileName:_jsxFileName,lineNumber:122}})));
 
 var StyledWithTheme=_react2.default.forwardRef(function(props,ref){
 return(
-_react2.default.createElement(_StyleProviderContext.StyleContext.Consumer,{__source:{fileName:_jsxFileName,lineNumber:133}},
+_react2.default.createElement(_StyleProviderContext.StyleContext.Consumer,{__source:{fileName:_jsxFileName,lineNumber:135}},
 function(theme){return(
 _react2.default.createElement(StyledCore,_extends({},
 props,{
 __theme:theme,
-forwardedRef:ref,__source:{fileName:_jsxFileName,lineNumber:135}})));}));
+forwardedRef:ref,__source:{fileName:_jsxFileName,lineNumber:137}})));}));
 
 
 
