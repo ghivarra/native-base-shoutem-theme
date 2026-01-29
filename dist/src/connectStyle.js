@@ -9,17 +9,8 @@ Object.defineProperty(exports,"__esModule",{value:true});var _extends=Object.ass
 
 
 
-
-
-
-clearThemeCache=clearThemeCache;var _react=require("react");var _react2=_interopRequireDefault(_react);var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);var _hoistNonReactStatics=require("hoist-non-react-statics");var _hoistNonReactStatics2=_interopRequireDefault(_hoistNonReactStatics);var _lodash=require("lodash");var _=_interopRequireWildcard(_lodash);var _normalizeStyle=require("./StyleNormalizer/normalizeStyle");var _normalizeStyle2=_interopRequireDefault(_normalizeStyle);var _reactNative=require("react-native");var _Theme=require("./Theme");var _Theme2=_interopRequireDefault(_Theme);var _resolveComponentStyle=require("./resolveComponentStyle");var _StyleProviderContext=require("./StyleProviderContext");function _interopRequireWildcard(obj){if(obj&&obj.__esModule){return obj;}else{var newObj={};if(obj!=null){for(var key in obj){if(Object.prototype.hasOwnProperty.call(obj,key))newObj[key]=obj[key];}}newObj.default=obj;return newObj;}}function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _toConsumableArray(arr){if(Array.isArray(arr)){for(var i=0,arr2=Array(arr.length);i<arr.length;i++){arr2[i]=arr[i];}return arr2;}else{return Array.from(arr);}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var themeCache={};function clearThemeCache(){
+clearThemeCache=clearThemeCache;var _react=require("react");var _react2=_interopRequireDefault(_react);var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);var _hoistNonReactStatics=require("hoist-non-react-statics");var _hoistNonReactStatics2=_interopRequireDefault(_hoistNonReactStatics);var _lodash=require("lodash");var _=_interopRequireWildcard(_lodash);var _Theme=require("./Theme");var _Theme2=_interopRequireDefault(_Theme);var _resolveComponentStyle=require("./resolveComponentStyle");var _StyleContext=require("./StyleContext");function _interopRequireWildcard(obj){if(obj&&obj.__esModule){return obj;}else{var newObj={};if(obj!=null){for(var key in obj){if(Object.prototype.hasOwnProperty.call(obj,key))newObj[key]=obj[key];}}newObj.default=obj;return newObj;}}function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _objectWithoutProperties(obj,keys){var target={};for(var i in obj){if(keys.indexOf(i)>=0)continue;if(!Object.prototype.hasOwnProperty.call(obj,i))continue;target[i]=obj[i];}return target;}function _toConsumableArray(arr){if(Array.isArray(arr)){for(var i=0,arr2=Array(arr.length);i<arr.length;i++){arr2[i]=arr[i];}return arr2;}else{return Array.from(arr);}}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var themeCache={};function clearThemeCache(){
 themeCache={};
-}
-
-function throwConnectStyleError(errorMessage,componentDisplayName){
-throw Error(
-errorMessage+" - when connecting "+componentDisplayName+" component to style.");
-
 }
 
 function isStyleVariant(propertyName){
@@ -37,33 +28,12 @@ return!isStyleVariant(key)&&!isChildStyle(key);
 }exports.default=
 
 function(
-componentStyleName)
-
-
-
-{var componentStyle=arguments.length>1&&arguments[1]!==undefined?arguments[1]:{};var mapPropsToStyleNames=arguments[2];var options=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};
-function getComponentDisplayName(WrappedComponent){
-return WrappedComponent.displayName||WrappedComponent.name||"Component";
-}
-
-return function wrapWithStyledComponent(WrappedComponent){
-var componentDisplayName=getComponentDisplayName(WrappedComponent);
-
-if(!_.isPlainObject(componentStyle)){
-throwConnectStyleError(
-"Component style must be plain object",
-componentDisplayName);
-
-}
-
-if(!_.isString(componentStyleName)){
-throwConnectStyleError(
-"Component Style Name must be string",
-componentDisplayName);
-
-}var
-
-StyledComponent=function(_React$PureComponent){_inherits(StyledComponent,_React$PureComponent);
+componentStyleName){var
+componentStyle=arguments.length>1&&arguments[1]!==undefined?arguments[1]:{};var
+mapPropsToStyleNames=arguments[2];var
+options=arguments.length>3&&arguments[3]!==undefined?arguments[3]:{};return(
+function(WrappedComponent){var
+StyledCore=function(_React$PureComponent){_inherits(StyledCore,_React$PureComponent);
 
 
 
@@ -80,43 +50,27 @@ StyledComponent=function(_React$PureComponent){_inherits(StyledComponent,_React$
 
 
 
-
-function StyledComponent(props){_classCallCheck(this,StyledComponent);var _this=_possibleConstructorReturn(this,(StyledComponent.__proto__||Object.getPrototypeOf(StyledComponent)).call(this,
+function StyledCore(props){_classCallCheck(this,StyledCore);var _this=_possibleConstructorReturn(this,(StyledCore.__proto__||Object.getPrototypeOf(StyledCore)).call(this,
 props));
-
 var styleNames=_this.getStyleNames(props);
 var style=_this.buildStyle(props,styleNames);
 
 _this.state={
 style:style,
-styleNames:styleNames,
-addedProps:_this.resolveAddedProps()};
+styleNames:styleNames};return _this;
 
-
-_this.setWrappedInstance=_this.setWrappedInstance.bind(_this);return _this;
-}_createClass(StyledComponent,[{key:"getTheme",value:function getTheme()
-
-{
-return(
-_StyleProviderContext.StyleContext._currentValue||
-_Theme2.default.getDefaultTheme());
-
-}},{key:"getStyleNames",value:function getStyleNames(
+}_createClass(StyledCore,[{key:"getStyleNames",value:function getStyleNames(
 
 props){
-var names=_.map(props,function(value,key){
-if(typeof value!=="object"&&value===true){
-return"."+key;
-}
-return false;
-});
+var names=_.map(props,function(value,key){return(
+typeof value!=="object"&&value===true?"."+key:false);});
 
 _.remove(names,function(v){return v===false;});
 return names;
 }},{key:"buildStyle",value:function buildStyle(
 
 props,styleNames){
-var theme=this.getTheme();
+var theme=props.__theme||_Theme2.default.getDefaultTheme();
 
 var themeStyle=theme.createComponentStyle(
 componentStyleName,
@@ -129,8 +83,6 @@ styleNames,
 themeStyle,
 {});
 
-
-themeCache[componentStyleName]=resolvedStyle;
 
 var concreteStyle=getConcreteStyle(
 _.merge({},resolvedStyle));
@@ -150,62 +102,50 @@ return[concreteStyle,props.style];
 return concreteStyle;
 }},{key:"componentDidUpdate",value:function componentDidUpdate(
 
-prevProps,prevState){
+prevProps){
 var nextStyleNames=this.getStyleNames(this.props);
 
-var propsChanged=
+if(
+prevProps.__theme!==this.props.__theme||
 prevProps.style!==this.props.style||
-prevProps.styleName!==this.props.styleName;
-
-var styleNamesChanged=!_.isEqual(
-prevState.styleNames,
-nextStyleNames);
-
-
-if(!propsChanged&&!styleNamesChanged)return;
-
-var nextStyle=this.buildStyle(
-this.props,
-nextStyleNames);
-
-
-if(!_.isEqual(prevState.style,nextStyle)){
-this.setState({
-style:nextStyle,
-styleNames:nextStyleNames});
-
-}
-}},{key:"resolveAddedProps",value:function resolveAddedProps()
-
+!_.isEqual(this.state.styleNames,nextStyleNames))
 {
-if(options.withRef){
-return{ref:"wrappedInstance"};
+var style=this.buildStyle(this.props,nextStyleNames);
+this.setState({style:style,styleNames:nextStyleNames});
 }
-return{};
-}},{key:"setWrappedInstance",value:function setWrappedInstance(
-
-component){
-this.wrappedInstance=
-component&&component._root?
-component._root:
-component;
 }},{key:"render",value:function render()
 
-{var _state=
-this.state,addedProps=_state.addedProps,style=_state.style;
+{var _props=
+this.props,style=_props.style,__theme=_props.__theme,forwardedRef=_props.forwardedRef,rest=_objectWithoutProperties(_props,["style","__theme","forwardedRef"]);
 
 return(
 _react2.default.createElement(WrappedComponent,_extends({},
-this.props,
-addedProps,{
-style:style,
-ref:this.setWrappedInstance,__source:{fileName:_jsxFileName,lineNumber:198}})));
+rest,{
+style:this.state.style,
+ref:forwardedRef,__source:{fileName:_jsxFileName,lineNumber:122}})));
 
 
-}}]);return StyledComponent;}(_react2.default.PureComponent);StyledComponent.propTypes={style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),styleName:_propTypes2.default.string,virtual:_propTypes2.default.bool};StyledComponent.defaultProps={virtual:options.virtual};StyledComponent.displayName="Styled("+componentDisplayName+")";StyledComponent.WrappedComponent=WrappedComponent;
+}}]);return StyledCore;}(_react2.default.PureComponent);StyledCore.propTypes={style:_propTypes2.default.oneOfType([_propTypes2.default.object,_propTypes2.default.number,_propTypes2.default.array]),styleName:_propTypes2.default.string,virtual:_propTypes2.default.bool,__theme:_propTypes2.default.object,forwardedRef:_propTypes2.default.any};StyledCore.defaultProps={virtual:options.virtual};
 
 
-return(0,_hoistNonReactStatics2.default)(StyledComponent,WrappedComponent);
-};
-};
+var StyledWithTheme=_react2.default.forwardRef(function(props,ref){
+return(
+_react2.default.createElement(_StyleContext.StyleContext.Consumer,{__source:{fileName:_jsxFileName,lineNumber:133}},
+function(theme){return(
+_react2.default.createElement(StyledCore,_extends({},
+props,{
+__theme:theme,
+forwardedRef:options.withRef?ref:undefined,__source:{fileName:_jsxFileName,lineNumber:135}})));}));
+
+
+
+
+});
+
+StyledWithTheme.displayName="Styled("+(
+WrappedComponent.displayName||WrappedComponent.name||"Component")+")";
+
+
+return(0,_hoistNonReactStatics2.default)(StyledWithTheme,WrappedComponent);
+});};
 //# sourceMappingURL=connectStyle.js.map
