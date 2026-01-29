@@ -5,7 +5,7 @@ import * as _ from "lodash";
 
 import Theme from "./Theme";
 import { resolveComponentStyle } from "./resolveComponentStyle";
-import { StyleContext } from "./StyleContext";
+import { StyleContext } from './StyleProviderContext';
 
 let themeCache = {};
 
@@ -135,7 +135,7 @@ export default (
           <StyledCore 
             {...props} 
             __theme={theme} 
-            forwardedRef={options.withRef ? ref : undefined} 
+            forwardedRef={ref}
           />
         )}
       </StyleContext.Consumer>
