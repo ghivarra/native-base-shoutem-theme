@@ -117,12 +117,14 @@ export default (
 
     render() {
       const { style, __theme, forwardedRef, ...rest } = this.props;
+
+      const refSent = options.withRef && (typeof forwardedRef === 'function' || typeof forwardedRef === 'object') ? forwardedRef : null
       
       return (
         <WrappedComponent
           {...rest}
           style={this.state.style}
-          ref={forwardedRef}
+          ref={refSent}
         />
       );
     }
